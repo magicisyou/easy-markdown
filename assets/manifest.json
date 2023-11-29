@@ -1,7 +1,7 @@
 {
     "name": "easymarkdown",
     "short_name": "easymarkdown",
-    "description": "A minimal Flet app",
+    "description": "Markdown editor and viewer",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",

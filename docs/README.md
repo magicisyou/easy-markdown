@@ -1,4 +1,4 @@
-# EasyMarkdown
+# Easy Markdown
 
 Markdown editor
 

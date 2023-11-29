@@ -5,6 +5,7 @@ from utils import variables as var
 FILE_PATH=None
 
 def content():
+        
     def pick_files_result(e: ft.FilePickerResultEvent):
         global FILE_PATH
         if e.files:
@@ -67,13 +68,15 @@ def content():
     )
 
     markdown_text_field=ft.TextField(
-        width=var.PAGE.window_width/2-50,
         multiline=True,
         min_lines=20,
+        max_lines=20,
         on_change=lambda _:render_markdown(),
         label='Markdown',
         hint_text='Write markdown here',
         autofocus=True,
+        autocorrect=False,
+        
     )
 
     markdown_output=ft.Markdown(
@@ -84,6 +87,7 @@ def content():
         code_theme="atom-one-dark",
         code_style=ft.TextStyle(font_family="Roboto Mono"),
         width=var.PAGE.window_width/2-50,
+        auto_follow_links=True,
     )
 
     def render_markdown():
@@ -91,28 +95,26 @@ def content():
         markdown_output.update()
 
     return ft.SafeArea(
-      ft.Column(
-          controls=[
-              ft.Row(
-                  controls=[
-                      ft.Column(
-                          controls=[
-                              markdown_text_field,
-                          ],
-                      ),
-                      ft.VerticalDivider(),
-                      ft.Column(
-                          controls=[
-                              markdown_output,
-                          ],
-                          scroll=ft.ScrollMode.AUTO,
-                          height=var.PAGE.window_height-50,
-                      ),
-                  ],
-                  vertical_alignment=ft.CrossAxisAlignment.START,
-                  height=var.PAGE.window_height,
-                  alignment=ft.MainAxisAlignment.SPACE_AROUND,
-              ),
-          ],
-      ),
-  )
+        ft.Column(
+            controls=[
+                ft.ResponsiveRow(
+                    controls=[
+                        ft.Column(
+                            col=6,
+                            controls=[
+                                markdown_text_field,
+                            ],
+                        ),
+                        ft.Column(
+                            col=6,
+                            controls=[
+                                markdown_output,
+                            ],
+                            scroll=ft.ScrollMode.AUTO,
+                            height=var.PAGE.window_height-50,
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    )
