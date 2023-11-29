@@ -2,8 +2,8 @@
 
 Markdown editor
 
-![screenshot dark](/docs/screenshot1.png)
-![screenshot light](/docs/screenshot2.png)
+![screenshot dark](/docs/screenshot1.webp)
+![screenshot light](/docs/screenshot2.webp)
 
 To run the app:
 
