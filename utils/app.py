@@ -88,6 +88,10 @@ def content():
     var.PAGE.overlay.append(file_saver)
 
     var.PAGE.appbar=ft.AppBar(
+        leading=ft.Image(
+            src="icon.svg",
+            fit=ft.ImageFit.SCALE_DOWN,
+        ),
         title=ft.Text('Easy Markdown'),
         bgcolor=ft.colors.SURFACE_VARIANT,
         center_title=False,
@@ -119,8 +123,13 @@ def content():
                     ),
                     ft.PopupMenuItem(
                         icon=ft.icons.CLOSE,
-                        text='Close',
+                        text='Close File',
                         on_click=lambda _:close_file(),
+                    ),
+                    ft.PopupMenuItem(
+                        icon=ft.icons.EXIT_TO_APP,
+                        text='Exit',
+                        on_click=lambda _:var.PAGE.window_close(),
                     ),
                     ft.PopupMenuItem(
                         text=('Created by youaremagic'),
@@ -130,7 +139,7 @@ def content():
                                 " created by youaremagic"
                             )
                         )
-                    )
+                    ),
                 ]
             )
         ],
